@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>
+		<typeAlias alias="admin" type="com.ch.project.model.Admin" />
+		<typeAlias alias="board" type="com.ch.project.model.Board" />
+		<typeAlias alias="comment" type="com.ch.project.model.Comment" />
+		<typeAlias alias="department" type="com.ch.project.model.Department" />
+		<typeAlias alias="doctor" type="com.ch.project.model.Doctor" />
+		<typeAlias alias="member" type="com.ch.project.model.Member" />
+		<typeAlias alias="notice" type="com.ch.project.model.Notice" />
+		<typeAlias alias="qna" type="com.ch.project.model.QnA" />
+		<typeAlias alias="reserv" type="com.ch.project.model.Reserv" />
+	</typeAliases>
+	<mappers>
+		<mapper resource="admin.xml" />
+		<mapper resource="board.xml" />
+		<mapper resource="comment.xml" />
+		<mapper resource="department.xml" />
+		<mapper resource="doctor.xml" />
+		<mapper resource="member.xml" />
+		<mapper resource="notice.xml" />
+		<mapper resource="qna.xml" />
+		<mapper resource="reserv.xml" />
+	</mappers>
+</configuration>
