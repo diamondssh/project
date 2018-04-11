@@ -18,10 +18,7 @@
 		<result property="code" 	column="code"/>	
 	</resultMap>
 	<insert id="insert" parameterType="member">
-		<selectKey keyProperty="mno" resultType="int" order="BEFORE">
-			select nvl(max(mno), 0) + 1 mno from member_test
-		</selectKey>
-		insert into member_test values(#{mno},#{id},#{pw},#{name},
+		insert into member_test values(,#{id},#{pw},#{name},
 			#{gender},{birthday},#{tel},#{email},#{addr},sysdate,'n',1111)
 	</insert>
 	<select id="selectId" parameterType="member" resultType="member">
