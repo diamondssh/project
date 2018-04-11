@@ -10,7 +10,7 @@
 <body>
 <c:if test="${result > 0}">
 	<script type="text/javascript">
-		alert("로그인 되었습니다.111")
+		alert("로그인 되었습니다ddddd.")
 		location.href="main.do";
 	</script>
 </c:if>
