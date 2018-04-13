@@ -8,7 +8,8 @@
 </head>
 <body>
 <script type="text/javascript">
-	location.href="memInsertForm.do";
+//location.href="memInsertForm.do";
+	location.href="list.do";
 </script>
 </body>
 </html>
