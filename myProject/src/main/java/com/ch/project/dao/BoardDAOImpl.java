@@ -14,7 +14,7 @@ public class BoardDAOImpl implements BoardDAO{
 	private SqlSessionTemplate sst;
 
 	@Override
-	public List<Board> getList() {
+	public List<Board> getList(Board board) {
 		// TODO Auto-generated method stub
 		return sst.selectList("boardns.list");
 	}
@@ -53,6 +53,12 @@ public class BoardDAOImpl implements BoardDAO{
 	public int delete(int bno) {
 		// TODO Auto-generated method stub
 		return sst.delete("boardns.delete", bno);
+	}
+
+	@Override
+	public int total(Board board) {
+		// TODO Auto-generated method stub
+		return sst.selectOne("boardns.total", board);
 	}
 
 	

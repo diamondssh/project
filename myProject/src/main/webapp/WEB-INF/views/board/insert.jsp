@@ -11,7 +11,7 @@
 <c:if test="${result > 0 }">
 	<script type="text/javascript">
 		alert("insert success");
-		location.href = "list.do"
+		location.href = "list.do?pageNum=${pageNum}"
 	</script>
 </c:if>
 <c:if test="${result == 0 }">

@@ -14,15 +14,15 @@ public class BoardServiceImpl implements BoardService {
 	private BoardDAO bd;
 	
 	@Override
-	public List<Board> getList() {
+	public List<Board> getList(Board board) {
 		// TODO Auto-generated method stub
-		return bd.getList();
+		return bd.getList(board);
 	}
 
 	@Override
 	public int total(Board board) {
 		// TODO Auto-generated method stub
-		return 0;
+		return bd.total(board);
 	}
 
 	@Override

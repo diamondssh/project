@@ -6,7 +6,7 @@ import com.ch.project.model.Board;
 
 public interface BoardDAO {
 
-	List<Board> getList();
+	List<Board> getList(Board board);
 
 	Board select(int bno);
 
@@ -19,6 +19,8 @@ public interface BoardDAO {
 	int update(Board board);
 
 	int delete(int bno);
+
+	int total(Board board);
 
 
 }

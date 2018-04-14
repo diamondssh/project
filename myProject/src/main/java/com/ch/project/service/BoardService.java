@@ -5,7 +5,7 @@ import com.ch.project.model.Board;
 public interface BoardService {
 	int total(Board board);
 
-	List<Board> getList();
+	List<Board> getList(Board board);
 
 	Board select(int bno);
 

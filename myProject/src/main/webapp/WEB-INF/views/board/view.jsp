@@ -7,10 +7,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript">
-/* 	$(function() {
+ 	$(function() {
 		$('#list').load('list.do?pageNum=${pageNum}')
 	});
- */
+ 
 </script>
 </head>
 <body>
@@ -23,9 +23,9 @@
 	<tr><th>내용</th><td><pre>${board.content }</pre></td></tr>
 
 </table>
-<a class="btn btn-warning" href="updateForm.do?bno=${board.bno }">수정</a>
-<a class="btn btn-danger" href="deleteForm.do?bno=${board.bno }">삭제</a>
-<a class="btn btn-default" href="list.do">목록</a>
+<a class="btn btn-warning" href="updateForm.do?bno=${board.bno }&pageNum=${pageNum}">수정</a>
+<a class="btn btn-danger" href="deleteForm.do?bno=${board.bno }&pageNum=${pageNum}">삭제</a>
+<a class="btn btn-default" href="list.do?pageNum=${pageNum }">목록</a>
 <div id="list"></div>		
 </div>
 </body>

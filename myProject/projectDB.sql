@@ -28,9 +28,17 @@ create table board(
 	content varchar2(500),
 	passwd varchar2(30),
 	readcount number,
-	reg_date date,
-	del char(1)
+	reg_date date	
 );
 
 select * from board;
-insert into board values(4,'제목','작성자','내용','123',0,sysdate,'n');
+insert into board values(11,'제목','작성자','내용','123',0,sysdate);
+insert into board values(12,'제목','작성자','내용','123',0,sysdate);
+insert into board values(13,'제목','작성자','내용','123',0,sysdate);
+insert into board values(14,'제목','작성자','내용','123',0,sysdate);
+insert into board values(15,'제목','작성자','내용','123',0,sysdate);
+insert into board values(16,'제목','작성자','내용','123',0,sysdate);
+insert into board values(17,'제목','작성자','내용','123',0,sysdate);
+insert into board values(18,'제목','작성자','내용','123',0,sysdate);
+insert into board values(19,'제목','작성자','내용','123',0,sysdate);
+insert into board values(20,'제목','작성자','내용','123',0,sysdate);
