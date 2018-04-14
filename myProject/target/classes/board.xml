@@ -14,6 +14,32 @@
 	<select id="list" resultMap="boardResult">
 		select * from board order by bno
 	</select>
+	<select id="select" parameterType="int" resultType="board">
+		select * from
+		board where bno=#{bno}
+	</select>
+	<update id="updateReadCount" parameterType="int">
+		update board set
+		readcount = readcount + 1
+		where bno=#{bno}
+	</update>
+	<select id="maxbno" resultType="int">
+		select nvl(max(bno), 0) + 1 bno
+		from board
+	</select>
+	<insert id="insert" parameterType="board">
+		<!-- <selectKey keyProperty="num" order="BEFORE" resultType="int"> select 
+			nvl(max(num), 0) + 1 num from board1 </selectKey> -->
+		insert into board values
+		(#{bno},#{subject},#{writer},#{content},#{passwd},0,sysdate,'n')
+	</insert>
+	<update id="update" parameterType="board" >
+		update board set subject=#{subject},writer=#{writer},
+		content=#{content} where bno=#{bno}
+	</update>
+	<delete id="delete" parameterType="int">
+		DELETE FROM board WHERE bno=#{bno}	
+	</delete>
 </mapper>
 
 

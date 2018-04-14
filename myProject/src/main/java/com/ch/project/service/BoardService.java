@@ -6,6 +6,18 @@ public interface BoardService {
 	int total(Board board);
 
 	List<Board> getList();
+
+	Board select(int bno);
+
+	void updateReadCount(int bno);
+
+	int insert(Board board);
+
+	int getMaxBno();
+
+	int update(Board board);
+
+	int delete(int bno);
 	
 
 }

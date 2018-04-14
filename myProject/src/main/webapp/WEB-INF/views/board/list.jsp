@@ -14,7 +14,8 @@
 <c:if test="${not empty list}">
 	<c:forEach var="board" items="${list}">
 		<tr><td>${board.bno}</td><!--  번호-->
-			<td>${board.subject}</td> <!--  제목-->
+			<td><a class="btn btn-sm btn-success"
+				href="view.do?bno=${board.bno}">${board.subject}</a></td> <!--  제목-->
 			<td>${board.writer }</td><!-- 작성자 -->
 			<td>${board.readcount }</td><!--  조회수-->
 			<td>${board.reg_date }</td></tr> <!--작성일  -->

@@ -19,5 +19,41 @@ public class BoardDAOImpl implements BoardDAO{
 		return sst.selectList("boardns.list");
 	}
 
+	@Override
+	public Board select(int bno) {
+		// TODO Auto-generated method stub
+		return sst.selectOne("boardns.select",bno);
+	}
+
+	@Override
+	public void updateReadCount(int bno) {
+		// TODO Auto-generated method stub
+		sst.update("boardns.updateReadCount",bno);
+	}
+
+	@Override
+	public int insert(Board board) {
+		// TODO Auto-generated method stub
+		return sst.insert("boardns.insert",board);
+	}
+
+	@Override
+	public int getMaxBno() {
+		// TODO Auto-generated method stub
+		return sst.selectOne("boardns.maxbno");
+	}
+
+	@Override
+	public int update(Board board) {
+		// TODO Auto-generated method stub
+		return sst.update("boardns.update",board);
+	}
+
+	@Override
+	public int delete(int bno) {
+		// TODO Auto-generated method stub
+		return sst.delete("boardns.delete", bno);
+	}
+
 	
 }
