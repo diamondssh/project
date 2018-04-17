@@ -9,7 +9,7 @@
 <script type="text/javascript">
 	
 	function lst(bno) {
-		$('#rlist').load('rlist/bno'+rbno);
+		$('#rlist').load('rlist.do?bno='+rbno);
 	
 	}
 	
@@ -28,13 +28,13 @@
 			</tr>
 			<c:forEach var="rb" items="${rlist}">
 				<tr>
-					<c:if test="${rb.rno==0 }">
+					<c:if test="${rb.rno == 0 }">
 						<th colspan="3">게시글이 없습니다</th>
 					</c:if>
 					<c:if test="${rb.rno >= 0 }">
 						<td>${rb.replyer }</td>
 						<td id="td_${rb.rno}">${rb.replytext}</td>
-						<td id="btn_${rb.rno}">
+						<td id="btn_${rb.rno}"></td>
 						<!-- 실제는 로그인 한 아이디와 댓글 아이디와 비교 하는게 맞다. -->
 							<%-- <c:if test="${rb.replyer==board.writer }">
 								<input type="button" value="수정"

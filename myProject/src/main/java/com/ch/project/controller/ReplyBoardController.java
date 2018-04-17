@@ -19,13 +19,13 @@ public class ReplyBoardController {
 	private ReplyBoardService rbs;
 	@Autowired
 	private BoardService bs;
-	@RequestMapping("rlist/num/{num}")
-	public String rlist(@PathVariable int bno, Model model) {
+	@RequestMapping("rlist")
+	public String rlist(int bno, Model model) {
 		Board board = bs.select(bno);
 		List<ReplyBoard> rlist =rbs.list(bno);
 		model.addAttribute("board",board);
 		model.addAttribute("rlist",rlist);
-		return "rlist";
+		return "board/rlist";
 	}
 	
 }

@@ -5,7 +5,7 @@
 	<!-- Use type aliases to avoid typing the full classname every time. -->
 	<resultMap id="rboardResult" type="rboard">
 		<result property="rno" column="rno" />
-		<result property="bno" column="rbno" />
+		<result property="rbno" column="rbno" />
 		<result property="replytext" column="replytext" />
 		<result property="replyer" column="replyer" />
 		<result property="regdate" column="regdate" />

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
+<%@ include file="header.jsp"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -7,9 +8,13 @@
 <title>Insert title here</title>
 </head>
 <body>
-<script type="text/javascript">
-//location.href="memInsertForm.do";
-	location.href="main.do";
-</script>
+	<c:set var="id" value="${sessionScope.id}"></c:set>
+	<c:if test="${empty id }">
+		<script type="text/javascript">
+			location.href = "loginForm.do";
+		</script>
+	</c:if>
+	${id }님 환영합니다
+
 </body>
 </html>

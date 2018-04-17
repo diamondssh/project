@@ -44,6 +44,7 @@ insert into board values(20,'제목','작성자','내용','123',0,sysdate);
 insert into board values(21,'제목','작성자','내용','123',0,sysdate);
 insert into board values(22,'제목','작성자','내용','123',0,sysdate);
 select * from (select a.*, rowNum rn from (select * from board order by bno ) a) where rn between 1 and 10
+
 create table replyBoard (
 rno number primary key,
 rbno number not null references board(bno),
@@ -51,6 +52,12 @@ replytext varchar2(500) not null,
 replyer varchar2(50) not null,
 regdate date not null
 );
-insert into REPLYBOARD values (1,255,'ANGKIMODDI','SONG',sysdate);
-insert into REPLYBOARD values (2,255,'ANGKIMODDI','SONG',sysdate);
-insert into REPLYBOARD values (3,255,'왜또넣어','42345',sysdate);
+
+drop table replyboard;
+insert into REPLYBOARD values (5,2,'ANGKIMODDI','SONG',sysdate);
+insert into REPLYBOARD values (6,2,'ANGKIMODDI','SONG',sysdate);
+insert into REPLYBOARD values (7,2,'왜또넣어','42345',sysdate);
+insert into REPLYBOARD values (8,2,'ANGKIMODDI','SONG',sysdate);
+
+select * from replyboard where rno=1 order by rno
+select * from replyboard
