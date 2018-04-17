@@ -16,13 +16,12 @@
 		count(*) from board
 	</select>
 	<select id="list" parameterType="board" resultMap="boardResult">
-		<!-- select * from board order by bno -->
 		<!-- select * from (select a.*, rowNum rn from (	select * from board	order by bno ) a)
 		where rn between #{startRow} and #{endRow} -->
 		select * from (select a.*, rowNum rn from (
 		select * from board
-		order by no) a)
-		where rn between #{startRow} and #{endRow}
+		order by bno desc) a)
+		where rn between #{startRow} and #{endRow} 
 	</select>
 	<select id="select" parameterType="int" resultType="board">
 		select * from

@@ -23,6 +23,7 @@ public class BoardController {
 		int rowPerPage = 10;
 		if (pageNum==null || pageNum.equals(""))
 			pageNum = "1";
+		System.out.println("pagenum="+pageNum);
 		int currentPage = Integer.parseInt(pageNum);
 		int startRow = (currentPage - 1)*rowPerPage + 1;
 		int endRow = startRow + rowPerPage - 1;
@@ -31,6 +32,7 @@ public class BoardController {
 		int no = total - startRow + 1;
 		board.setStartRow(startRow);
 		board.setEndRow(endRow);
+		System.out.println("startrow= "+startRow+",endrow="+endRow);
 		List<Board> list = bs.getList(board);
 		// List<Board> list = bs.getList(startRow, endRow);
 		model.addAttribute("pp", pp);

@@ -1,7 +1,21 @@
 package com.ch.project.service;
 
 public class PagingPgm {
+	private int rowPerPage;
+	private int currentPage;
+	private int totalPage;
+	private int startPage;
+	private int endPage;
+	private int pagePerBlock = 10; 
 	private int total;
+	public PagingPgm(int total, int rowPerPage, int currentPage) {
+		this.total=total; this.currentPage=currentPage; this.rowPerPage=rowPerPage;
+		totalPage = (int)Math.ceil((double)total/rowPerPage);
+		startPage = currentPage -(currentPage -1) % pagePerBlock;
+		endPage=startPage + pagePerBlock -1;
+		if(endPage > totalPage) endPage = totalPage;
+	}
+
 	public int getTotal() {
 		return total;
 	}
@@ -44,19 +58,6 @@ public class PagingPgm {
 	public void setPagePerBlock(int pagePerBlock) {
 		this.pagePerBlock = pagePerBlock;
 	}
-	private int rowPerPage;
-	private int currentPage;
-	private int totalPage;
-	private int startPage;
-	private int endPage;
-	private int pagePerBlock = 10; 
-	public PagingPgm(int total, int rowPerPage, int currentPage) {
-		this.total=total; this.currentPage=currentPage; this.rowPerPage=rowPerPage;
-		totalPage = (int)Math.ceil((double)total/rowPerPage);
-		startPage = currentPage -(currentPage -1) % pagePerBlock;
-		endPage=startPage + pagePerBlock -1;
-		if(endPage > totalPage) endPage = totalPage;
 		
-	}
 
 }

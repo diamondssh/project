@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ include file="../header.jsp" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html >
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -9,6 +9,7 @@
 <script type="text/javascript">
  	$(function() {
 		$('#list').load('list.do?pageNum=${pageNum}')
+		$('#rlist').load('rlist.do?bno=${board.bno}');
 	});
  
 </script>
@@ -26,6 +27,16 @@
 <a class="btn btn-warning" href="updateForm.do?bno=${board.bno }&pageNum=${pageNum}">수정</a>
 <a class="btn btn-danger" href="deleteForm.do?bno=${board.bno }&pageNum=${pageNum}">삭제</a>
 <a class="btn btn-default" href="list.do?pageNum=${pageNum }">목록</a>
+<p>
+<form name="frm" id="frm">
+			<input type="hidden" name="replyer" value="${board.writer }">
+			<input type="hidden" name="rbno" value="${board.bno }"> 댓글 :
+			<textarea rows="3" cols="50" name="replytext"
+				placeholder="댓글을 입력하세요."></textarea>
+			<input type="button" value="OK" id="repInsert">
+			<!-- 버튼처리 한이유는 아작스로 하기 위해서 -->
+		</form>
+		<div id="rlist"></div>
 <div id="list"></div>		
 </div>
 </body>
