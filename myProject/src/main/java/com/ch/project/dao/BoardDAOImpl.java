@@ -17,7 +17,7 @@ public class BoardDAOImpl implements BoardDAO{
 	public List<Board> getList(Board board) {
 		System.out.println("start = "+board.getStartRow());
 		System.out.println("end = "+board.getEndRow());
-		// TODO Auto-generated method stub
+		// TODO Auto-generated method stub 
 		return sst.selectList("boardns.list",board);
 	}
 

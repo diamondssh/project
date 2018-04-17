@@ -8,7 +8,7 @@ public class ReplyBoard {
 	private String replytext;
 	private String replyer; // login한 아이디 권장
 	private Date regdate;
-	
+	 
 	public int getRno() {
 		return rno;
 	}

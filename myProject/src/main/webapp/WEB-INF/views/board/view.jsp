@@ -36,8 +36,8 @@
 			<input type="button" value="OK" id="repInsert">
 			<!-- 버튼처리 한이유는 아작스로 하기 위해서 -->
 		</form>
-		<div id="rlist"></div>
-<div id="list"></div>		
+	<div id="rlist"></div>
+	<div id="list"></div>		
 </div>
 </body>
 </html>

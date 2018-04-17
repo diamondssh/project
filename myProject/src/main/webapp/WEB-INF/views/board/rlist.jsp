@@ -9,7 +9,7 @@
 <script type="text/javascript">
 	
 	function lst(bno) {
-		$('#rlist').load('rlist/num/'+rbno);
+		$('#rlist').load('rlist/bno'+rbno);
 	
 	}
 	
