@@ -17,7 +17,11 @@
 	</select>
 	<select id="list" parameterType="board" resultMap="boardResult">
 		<!-- select * from board order by bno -->
-		select * from (select a.*, rowNum rn from (	select * from board	order by bno ) a)
+		<!-- select * from (select a.*, rowNum rn from (	select * from board	order by bno ) a)
+		where rn between #{startRow} and #{endRow} -->
+		select * from (select a.*, rowNum rn from (
+		select * from board
+		order by no) a)
 		where rn between #{startRow} and #{endRow}
 	</select>
 	<select id="select" parameterType="int" resultType="board">
@@ -37,7 +41,7 @@
 		<!-- <selectKey keyProperty="num" order="BEFORE" resultType="int"> select 
 			nvl(max(num), 0) + 1 num from board1 </selectKey> -->
 		insert into board values
-		(#{bno},#{subject},#{writer},#{content},#{passwd},0,sysdate,'n')
+		(#{bno},#{subject},#{writer},#{content},#{passwd},0,sysdate)
 	</insert>
 	<update id="update" parameterType="board">
 		update board set

@@ -20,7 +20,6 @@ public class BoardController {
 
 	@RequestMapping("list")
 	public String list(String pageNum, Board board,Model model) {
-		List<Board> list = bs.getList(board);
 		int rowPerPage = 10;
 		if (pageNum==null || pageNum.equals(""))
 			pageNum = "1";
@@ -32,6 +31,7 @@ public class BoardController {
 		int no = total - startRow + 1;
 		board.setStartRow(startRow);
 		board.setEndRow(endRow);
+		List<Board> list = bs.getList(board);
 		// List<Board> list = bs.getList(startRow, endRow);
 		model.addAttribute("pp", pp);
 		model.addAttribute("no", no);
