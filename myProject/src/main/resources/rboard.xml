@@ -9,7 +9,7 @@
 		<result property="replytext" column="replytext" />
 		<result property="replyer" column="replyer" />
 		<result property="regdate" column="regdate" />
-	
+
 
 	</resultMap>
 	<select id="list" parameterType="int" resultMap="rboardResult">
@@ -22,8 +22,18 @@
 			select
 			nvl(max(rno),0) +1 from replyboard
 		</selectKey>
-		insert into replyboard values(#{rno}, #{rbno}, #{replytext}, #{replyer}, sysdate)
+		insert into replyboard values(#{rno}, #{rbno}, #{replytext},
+		#{replyer}, sysdate)
 	</insert>
+	<delete id="delete" parameterType="int">
+		DELETE FROM replyboard WHERE
+		rno=#{rno}
+	</delete>
+	<update id="update" parameterType="rboard">
+		update replyboard set
+		replytext=#{replytext} where
+		rno=#{rno}
+	</update>
 </mapper>
 
 

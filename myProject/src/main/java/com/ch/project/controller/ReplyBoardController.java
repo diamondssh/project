@@ -20,7 +20,7 @@ public class ReplyBoardController {
 	@Autowired
 	private BoardService bs;
 	@RequestMapping("rlist")
-	public String rlist(int bno, Model model) {
+	public String rlist( int bno, Model model) {
 		Board board = bs.select(bno);
 		List<ReplyBoard> rlist =rbs.list(bno);
 		model.addAttribute("board",board);
@@ -32,4 +32,15 @@ public class ReplyBoardController {
 		rbs.insert(rb);
 		return "redirect:rlist.do?bno="+rb.getRbno();
 	}
+	@RequestMapping("rDelete")
+	public String rDelete(ReplyBoard rb, Model model) {
+		rbs.delete(rb.getRno());
+		return "redirect:rlist.do?bno="+rb.getRbno();
+	}
+	@RequestMapping("rUpdate")
+	public String rUpdate(ReplyBoard rb, Model model) {
+		rbs.update(rb);
+		return "redirect:rlist.do?bno="+rb.getRbno();
+	}
+	
 }

@@ -32,17 +32,28 @@ create table board(
 );
 
 select * from board;
-insert into board values(12,'제목','작성자','내용','123',0,sysdate);
-insert into board values(13,'제목','작성자','내용','123',0,sysdate);
-insert into board values(14,'제목','작성자','내용','123',0,sysdate);
-insert into board values(15,'제목','작성자','내용','123',0,sysdate);
-insert into board values(16,'제목','작성자','내용','123',0,sysdate);
-insert into board values(17,'제목','작성자','내용','123',0,sysdate);
-insert into board values(18,'제목','작성자','내용','123',0,sysdate);
-insert into board values(19,'제목','작성자','내용','123',0,sysdate);
-insert into board values(20,'제목','작성자','내용','123',0,sysdate);
-insert into board values(21,'제목','작성자','내용','123',0,sysdate);
-insert into board values(22,'제목','작성자','내용','123',0,sysdate);
+insert into board values(81,'제목','작성자','내용','123',0,sysdate);
+insert into board values(82,'제목','작성자','내용','123',0,sysdate);
+insert into board values(83,'제목','작성자','내용','123',0,sysdate);
+insert into board values(84,'제목','작성자','내용','123',0,sysdate);
+insert into board values(85,'제목','작성자','내용','123',0,sysdate);
+insert into board values(86,'제목','작성자','내용','123',0,sysdate);
+insert into board values(87,'제목','작성자','내용','123',0,sysdate);
+insert into board values(88,'제목','작성자','내용','123',0,sysdate);
+insert into board values(89,'제목','작성자','내용','123',0,sysdate);
+insert into board values(90,'제목','작성자','내용','123',0,sysdate);
+insert into board values(91,'제목','작성자','내용','123',0,sysdate);
+insert into board values(92,'제목','작성자','내용','123',0,sysdate);
+insert into board values(93,'제목','작성자','내용','123',0,sysdate);
+insert into board values(94,'제목','작성자','내용','123',0,sysdate);
+insert into board values(95,'제목','작성자','내용','123',0,sysdate);
+insert into board values(96,'제목','작성자','내용','123',0,sysdate);
+insert into board values(97,'제목','작성자','내용','123',0,sysdate);
+insert into board values(98,'제목','작성자','내용','123',0,sysdate);
+insert into board values(99,'제목','작성자','내용','123',0,sysdate);
+insert into board values(100,'제목','작성자','내용','123',0,sysdate);
+insert into board values(101,'제목','작성자','내용','123',0,sysdate);
+
 select * from (select a.*, rowNum rn from (select * from board order by bno ) a) where rn between 1 and 10
 
 create table replyBoard (
@@ -61,3 +72,4 @@ insert into REPLYBOARD values (8,2,'ANGKIMODDI','SONG',sysdate);
 
 select * from replyboard where rno=1 order by rno
 select * from replyboard
+DELETE FROM replyboard WHERE	rno=26;

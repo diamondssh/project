@@ -10,4 +10,10 @@ public interface ReplyBoardDao {
 
 	void insert(ReplyBoard rb);
 
+	void delete(int rno);
+
+	void update(ReplyBoard rb);
+
+
+
 }

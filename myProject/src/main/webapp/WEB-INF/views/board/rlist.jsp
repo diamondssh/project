@@ -16,11 +16,29 @@
 		$('#td_'+rno).html(
 		  '<textarea name="replytext" cols="30" rows="3" id="rt">'
 		  +txt+'</textarea>');
-		/* $('#btn_'+rno).html(
+		 $('#btn_'+rno).html(
 			'<input type="button" value="확인" onclick="up('+
 				rno+','+rbno+
 			')"><input type="button" value="취소" onclick="lst('+
-					rbno+')">');  */
+					rbno+')">');  
+	}
+	function rDelete(rno,rbno){
+		var frmData = "rno="+rno+"&rbno="+rbno;
+		$.post('rDelete.do',frmData, function(data){
+			alert("삭제되었습니다.");
+			$('#rlist').html(data);
+		});
+		
+	}
+	function up(rno,rbno) {
+		var replytext = $('#rt').val();
+		var frmData="rno="+rno+"&rbno="+rbno+"&replytext="+replytext;
+		$.post('rUpdate.do',frmData, function(data) {
+			alert("수정 되었습니다");
+			$('#rlist').html(data);
+		
+		});
+		
 	}
 	
 </script>
@@ -36,22 +54,24 @@
 				<th>내용</th>
 				<th>권한</th>
 			</tr>
+			<c:if test="${empty rlist }">
+				<th colspan="3">댓글이 없습니다</th>
+			</c:if>
+		
 			<c:forEach var="rb" items="${rlist}">
 				<tr>
-					<c:if test="${rb.rno == 0 }">
-						<th colspan="3">댓글이 없습니다</th>
-					</c:if>
-					<c:if test="${rb.rno >= 0 }">
+						<c:if test="${not empty rlist }">
 						<td>${rb.replyer }</td>
 						<td id="td_${rb.rno}">${rb.replytext}</td>
 						<td id="btn_${rb.rno}">
-						<!-- 실제는 로그인 한 아이디와 댓글 아이디와 비교 하는게 맞다. -->
-							<%--  <c:if test="${rb.replyer==board.writer }">
+							<!-- 실제는 로그인 한 아이디와 댓글 아이디와 비교 하는게 맞다. --> <c:if
+								test="${rb.replyer==board.writer }">
 								<input type="button" value="수정"
-									onclick="rUpdate(${rb.rno},${rb.bno })">
+									onclick="rUpdate(${rb.rno},${rb.rbno })">
 								<input type="button" value="삭제"
-									onclick="rDelete(${rb.rno},${rb.bno })">
-							</c:if> --%></td> 
+									onclick="rDelete(${rb.rno},${rb.rbno })">
+							</c:if>
+						</td>
 					</c:if>
 				</tr>
 			</c:forEach>

@@ -26,5 +26,17 @@ public class ReplyBoardServiceImpl implements ReplyBoardService{
 		
 	}
 
+	@Override
+	public void delete(int rno) {
+		rbd.delete(rno);
+	}
+
+	@Override
+	public void update(ReplyBoard rb) {
+		rbd.update(rb);
+	}
+
+
+
 
 }
