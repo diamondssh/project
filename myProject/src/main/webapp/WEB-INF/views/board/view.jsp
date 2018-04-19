@@ -8,8 +8,20 @@
 <title>Insert title here</title>
 <script type="text/javascript">
  	$(function() {
-		$('#list').load('list.do?pageNum=${pageNum}')
 		$('#rlist').load('rlist.do?bno=${board.bno}');
+		$('#list').load('list.do?pageNum=${pageNum}');
+		$('#repInsert').click(function() {
+			if (!frm.replytext.value) {
+				alert("댓글 입력 후 확인을 누르세요");
+				frm.replytext.focus();
+				return false;
+			}
+			var frmData = $('#frm').serialize();
+			$.post('rInsert.do', frmData, function(data) {
+				$('#rlist').html(data);
+				frm.replytext.value = "";
+			});
+		});
 	});
  
 </script>

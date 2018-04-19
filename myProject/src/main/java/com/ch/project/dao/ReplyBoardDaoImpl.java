@@ -18,5 +18,11 @@ public class ReplyBoardDaoImpl implements ReplyBoardDao {
 		return sst.selectList("rboardns.list",rbno);
 	}
 
+	@Override
+	public void insert(ReplyBoard rb) {
+		sst.insert("rboardns.insert",rb);
+		
+	}
+
 
 }

@@ -8,4 +8,6 @@ public interface ReplyBoardDao {
 
 	List<ReplyBoard> list(int rbno);
 
+	void insert(ReplyBoard rb);
+
 }

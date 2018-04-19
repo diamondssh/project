@@ -8,4 +8,6 @@ public interface ReplyBoardService {
 
 	List<ReplyBoard> list(int bno);
 
+	void insert(ReplyBoard rb);
+
 }

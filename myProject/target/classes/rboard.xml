@@ -17,7 +17,13 @@
 		replyboard where rbno=#{rbno}
 		order by rno
 	</select>
-	
+	<insert id="insert" parameterType="rboard">
+		<selectKey resultType="int" keyProperty="rno" order="BEFORE">
+			select
+			nvl(max(rno),0) +1 from replyboard
+		</selectKey>
+		insert into replyboard values(#{rno}, #{rbno}, #{replytext}, #{replyer}, sysdate)
+	</insert>
 </mapper>
 
 

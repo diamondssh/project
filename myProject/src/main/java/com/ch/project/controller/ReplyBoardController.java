@@ -27,5 +27,9 @@ public class ReplyBoardController {
 		model.addAttribute("rlist",rlist);
 		return "board/rlist";
 	}
-	
+	@RequestMapping("rInsert")
+	public String rInsert(ReplyBoard rb, Model model) {
+		rbs.insert(rb);
+		return "redirect:rlist.do?bno="+rb.getRbno();
+	}
 }

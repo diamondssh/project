@@ -9,7 +9,7 @@
 <body>
 <script type="text/javascript">
 //location.href="memInsertForm.do";
-	location.href="main.do";
+	location.href="list.do";
 </script>
 </body>
 </html>

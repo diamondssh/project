@@ -20,5 +20,11 @@ public class ReplyBoardServiceImpl implements ReplyBoardService{
 		return rbd.list(rbno);
 	}
 
+	@Override
+	public void insert(ReplyBoard rb) {
+		rbd.insert(rb);
+		
+	}
+
 
 }
