@@ -1,0 +1,26 @@
+@charset "UTF-8";
+div.top{
+	margin: 0 auto;
+}
+
+div.header {
+	display: inline-block;
+	float:left;
+	height: 80%;
+	width: 30%;
+	background-color: #99ccff;
+}
+
+div.article {
+	float:left;
+	height: 80%;
+	width: 60%;
+	margin : auto;
+	background-color: #99ccff;
+}
+
+div.column1 {
+	height: 15%;
+	width: 90%;
+	background-color: #ccff66;
+}

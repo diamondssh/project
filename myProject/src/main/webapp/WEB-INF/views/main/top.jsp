@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../header.jsp" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,11 +16,33 @@
          <a href="#"><img alt="logo" src="images/logo.png"></a>
       </div>
       <div class="h_menu">
-         <ul>   
-            <li><a href="#" id="menu">회원가입</a></li>
-            <li>|</li>
-            <li><a href="#" id="menu">로그인</a></li>
-         </ul>
+         <ul>
+				<li><c:choose>
+						<c:when test="${not empty id}">
+
+							<c:choose>
+								<c:when test="${id == 'master' }">
+									<a href="adminPage.do">관리자 페이지</a>
+								</c:when>
+								<c:when test="${id != 'master' }">
+									<a href="main2.do" id="menu">마이페이지</a>
+								</c:when>
+							</c:choose>
+						</c:when>
+						<c:when test="${empty id}">
+							<a href="memberForm.do" id="menu">회원가입</a>
+						</c:when>
+					</c:choose></li>
+				<li>|</li>
+				<li><c:choose>
+						<c:when test="${not empty id}">
+							<a href="logout.do" id="menu">로그아웃</a>
+						</c:when>
+						<c:when test="${empty id}">
+							<a href="loginForm.do" id="menu">로그인</a>
+						</c:when>
+					</c:choose></li>
+			</ul>
       </div>
    </div>
 </header>

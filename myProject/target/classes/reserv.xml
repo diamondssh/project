@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="reservns">
+	<!-- Use type aliases to avoid typing the full classname every time. -->
+	<resultMap id="reservResult" type="reserv">
+		<result property="rno" column="rno" />
+		<result property="rdate" column="rdate" />
+		<result property="rtime" column="rtime" />
+		<result property="applydate" column="applydate" />
+
+		<!-- F.k -->
+		<result property="id" column="id" />
+		<result property="name" column="name" />
+		<result property="department" column="department" />
+
+	</resultMap>
+
+	<select id="total" resultType="int" parameterType="reserv">
+		select
+		count(*) from reserv
+	</select>
+
+	<select id="list" resultMap="reservResult"
+		parameterType="string">
+		select * from reserv where id=#{id} order by rno
+	</select>
+
+	<select id="listAll" parameterType="reserv"
+		resultMap="reservResult">
+		select * from (select a.*, rowNum rn from (
+		select * from
+		reserv order by rdate) a)
+		where rn between #{startRow} and
+		#{endRow}
+	</select>
+
+	<select id="chk" parameterType="reserv" resultMap="reservResult">
+		select * from
+		reserv where rdate=#{rdate} and rtime=#{rtime} and
+		department=#{department}
+	</select>
+	<select id="getMaxNum" resultType="int">
+		select nvl(max(rno), 0) + 1
+		rno from reserv
+	</select>
+	<select id="getName" resultType="string" parameterType="string">
+		select
+		name from member where
+		id=#{id}
+	</select>
+	<insert id="insert" parameterType="reserv">
+		insert into reserv
+		values(reserv_seq.nextval,#{rdate},#{rtime},sysdate,#{id},#{name},#{department})
+	</insert>
+	<delete id="delete" parameterType="int">
+		delete from reserv where
+		rno=#{rno}
+	</delete>
+
+	<select id="select" parameterType="int" resultType="reserv">
+		select * from
+		reserv where rno=#{rno}
+	</select>
+
+	<update id="update" parameterType="reserv">
+		update reserv set
+		department=#{department},rdate=#{rdate},rtime=#{rtime}
+		where rno=#{rno}
+	</update>
+</mapper>

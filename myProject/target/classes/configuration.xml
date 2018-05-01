@@ -6,10 +6,14 @@
 	
 		<typeAlias alias="fboard" type="com.ch.project.model.FreeBoard" />
 		<typeAlias alias="frboard" type="com.ch.project.model.FreeReplyBoard" />
+		<typeAlias alias="member" type="com.ch.project.model.Member" />
+		<typeAlias alias="reserv" type="com.ch.project.model.Reserv" />
 	</typeAliases>
 	<mappers>
 	
 		<mapper resource="fboard.xml" />
 		<mapper resource="frboard.xml" />
+		<mapper resource="member.xml" />
+		<mapper resource="reserv.xml" />
 	</mappers>
 </configuration>

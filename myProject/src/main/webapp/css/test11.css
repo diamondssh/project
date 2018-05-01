@@ -1,0 +1,41 @@
+@charset "UTF-8";
+
+div.top {
+	margin: 0 auto;
+}
+
+div.header {
+	height: 3%;
+	width: 100%;
+	background-color: #99ccff;
+}
+
+div.memberInfo {
+	float: left;
+	height: 80%;
+	width: 31.9%;
+	 text-align: center; 
+	background-color: #99ccff;
+}
+
+/* memberInfo.h1 {
+	align: center;
+}
+
+memberInfo.p {
+	align: center;
+} */
+
+div.article {
+	float: left;
+	height: 80%;
+	width: 68%;
+	margin: auto;
+	background-color: #99ccff;
+}
+
+div.column1 {
+	height: 15%;
+	width: 90%;
+	background-color: #ccff66;
+}

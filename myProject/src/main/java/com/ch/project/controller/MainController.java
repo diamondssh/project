@@ -28,4 +28,8 @@ public class MainController {
 	public String main2() {
 		return "main/main2";
 	}
+	@RequestMapping("mypage")
+	public String mypage() {
+		return "main/mypage";
+	}
 }

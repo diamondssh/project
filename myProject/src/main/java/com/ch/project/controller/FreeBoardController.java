@@ -57,9 +57,10 @@ public class FreeBoardController {
 		return "freeboard/freeBoardInsertForm";
 	}
 	@RequestMapping("freeBoardInsert")
-	public String insert(FreeBoard fboard, Model model, String pageNum, HttpServletRequest request) {
+	public String insert(FreeBoard fboard, Model model, String pageNum,String id, HttpServletRequest request) {
 		int number = bs.getMaxBno();
 		fboard.setBno(number);
+		fboard.setWriter(id);
 		int result = bs.insert(fboard);
 		model.addAttribute("result", result);
 		model.addAttribute("pageNum", pageNum);

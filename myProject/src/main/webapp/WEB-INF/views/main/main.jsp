@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="../header.jsp"%>
 
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,7 +30,7 @@
 									<a href="adminPage.do">관리자 페이지</a>
 								</c:when>
 								<c:when test="${id != 'master' }">
-									<a href="main2.do" id="menu">마이페이지</a>
+									<a href="mypage.do" id="menu">마이페이지</a>
 								</c:when>
 							</c:choose>
 						</c:when>

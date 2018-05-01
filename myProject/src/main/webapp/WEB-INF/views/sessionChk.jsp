@@ -11,6 +11,7 @@
 	<c:set var="id" value="${sessionScope.id}"></c:set>
 	<c:if test="${empty id }">
 		<script type="text/javascript">
+		alert("로그인 후 이용 가능합니다.");
 			location.href = "loginForm.do";
 		</script>
 	</c:if>
