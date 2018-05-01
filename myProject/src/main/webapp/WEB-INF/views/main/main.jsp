@@ -77,7 +77,7 @@
 				<ul class="dd_menu">
 					<li><a href="#">공지사항</a></li>
 					<li><a href="#">문의사항</a></li>
-					<li><a href="list.do">자유게시판</a></li>
+					<li><a href="freeBoardList.do">자유게시판</a></li>
 				</ul></li>
 		</ul>
 	</nav>

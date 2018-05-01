@@ -20,8 +20,8 @@ select * from member_test
 
 select * from member_test where id='id';
 
-drop table board;
-create table board(
+drop table fboard;
+create table fboard(
 	bno number primary key,
 	subject varchar2(50) not null,
 	writer varchar2(20) not null,
@@ -31,45 +31,46 @@ create table board(
 	reg_date date	
 );
 
-select * from board;
-insert into board values(81,'제목','작성자','내용','123',0,sysdate);
-insert into board values(82,'제목','작성자','내용','123',0,sysdate);
-insert into board values(83,'제목','작성자','내용','123',0,sysdate);
-insert into board values(84,'제목','작성자','내용','123',0,sysdate);
-insert into board values(85,'제목','작성자','내용','123',0,sysdate);
-insert into board values(86,'제목','작성자','내용','123',0,sysdate);
-insert into board values(87,'제목','작성자','내용','123',0,sysdate);
-insert into board values(88,'제목','작성자','내용','123',0,sysdate);
-insert into board values(89,'제목','작성자','내용','123',0,sysdate);
-insert into board values(90,'제목','작성자','내용','123',0,sysdate);
-insert into board values(91,'제목','작성자','내용','123',0,sysdate);
-insert into board values(92,'제목','작성자','내용','123',0,sysdate);
-insert into board values(93,'제목','작성자','내용','123',0,sysdate);
-insert into board values(94,'제목','작성자','내용','123',0,sysdate);
-insert into board values(95,'제목','작성자','내용','123',0,sysdate);
-insert into board values(96,'제목','작성자','내용','123',0,sysdate);
-insert into board values(97,'제목','작성자','내용','123',0,sysdate);
-insert into board values(98,'제목','작성자','내용','123',0,sysdate);
-insert into board values(99,'제목','작성자','내용','123',0,sysdate);
-insert into board values(100,'제목','작성자','내용','123',0,sysdate);
-insert into board values(101,'제목','작성자','내용','123',0,sysdate);
+select * from fboard;
+insert into fboard values(2,'제목','작성자','내용','123',0,sysdate);
+insert into fboard values(82,'제목','작성자','내용','123',0,sysdate);
+insert into fboard values(83,'제목','작성자','내용','123',0,sysdate);
+insert into fboard values(84,'제목','작성자','내용','123',0,sysdate);
+insert into fboard values(85,'제목','작성자','내용','123',0,sysdate);
+insert into fboard values(86,'제목','작성자','내용','123',0,sysdate);
+insert into fboard values(87,'제목','작성자','내용','123',0,sysdate);
+insert into fboard values(88,'제목','작성자','내용','123',0,sysdate);
+insert into fboard values(89,'제목','작성자','내용','123',0,sysdate);
+insert into fboard values(90,'제목','작성자','내용','123',0,sysdate);
+insert into fboard values(91,'제목','작성자','내용','123',0,sysdate);
+insert into fboard values(92,'제목','작성자','내용','123',0,sysdate);
+insert into fboard values(93,'제목','작성자','내용','123',0,sysdate);
+insert into fboard values(94,'제목','작성자','내용','123',0,sysdate);
+insert into fboard values(95,'제목','작성자','내용','123',0,sysdate);
+insert into fboard values(96,'제목','작성자','내용','123',0,sysdate);
+insert into fboard values(97,'제목','작성자','내용','123',0,sysdate);
+insert into fboard values(98,'제목','작성자','내용','123',0,sysdate);
+insert into fboard values(99,'제목','작성자','내용','123',0,sysdate);
+insert into fboard values(100,'제목','작성자','내용','123',0,sysdate);
+insert into fboard values(101,'제목','작성자','내용','123',0,sysdate);
 
-select * from (select a.*, rowNum rn from (select * from board order by bno ) a) where rn between 1 and 10
+select * from (select a.*, rowNum rn from (select * from fboard order by bno ) a) where rn between 1 and 10
+DELETE FROM fboard WHERE bno=2
 
-create table replyBoard (
+create table freplyboard (
 rno number primary key,
-rbno number not null references board(bno),
+rbno number not null references fboard(bno) on delete cascade,
 replytext varchar2(500) not null,
 replyer varchar2(50) not null,
 regdate date not null
 );
 
-drop table replyboard;
-insert into REPLYBOARD values (5,2,'ANGKIMODDI','SONG',sysdate);
-insert into REPLYBOARD values (6,2,'ANGKIMODDI','SONG',sysdate);
-insert into REPLYBOARD values (7,2,'왜또넣어','42345',sysdate);
-insert into REPLYBOARD values (8,2,'ANGKIMODDI','SONG',sysdate);
+drop table freplyboard;
+insert into freplyboard values (5,2,'ANGKIMODDI','SONG',sysdate);
+insert into freplyboard values (6,2,'ANGKIMODDI','SONG',sysdate);
+insert into freplyboard values (7,2,'왜또넣어','42345',sysdate);
+insert into freplyboard values (8,2,'ANGKIMODDI','SONG',sysdate);
 
-select * from replyboard where rno=1 order by rno
-select * from replyboard
-DELETE FROM replyboard WHERE	rno=26;
+select * from freplyboard where rno=1 order by rno
+select * from freplyboard
+DELETE FROM freplyboard WHERE	rno=26;

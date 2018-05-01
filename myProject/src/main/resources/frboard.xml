@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="frboardns">
+	<!-- Use type aliases to avoid typing the full classname every time. -->
+	<resultMap id="frboardResult" type="frboard">
+		<result property="rno" column="rno" />
+		<result property="rbno" column="rbno" />
+		<result property="replytext" column="replytext" />
+		<result property="replyer" column="replyer" />
+		<result property="regdate" column="regdate" />
+
+
+	</resultMap>
+	<select id="list" parameterType="int" resultMap="frboardResult">
+		select * from
+		freplyboard where rbno=#{rbno}
+		order by rno
+	</select>
+	<insert id="insert" parameterType="frboard">
+		<selectKey resultType="int" keyProperty="rno" order="BEFORE">
+			select
+			nvl(max(rno),0) +1 from freplyboard
+		</selectKey>
+		insert into freplyboard values(#{rno}, #{rbno}, #{replytext},
+		#{replyer}, sysdate)
+	</insert>
+	<delete id="delete" parameterType="int">
+		DELETE FROM freplyboard WHERE
+		rno=#{rno}
+	</delete>
+	<update id="update" parameterType="frboard">
+		update freplyboard set
+		replytext=#{replytext} where
+		rno=#{rno}
+	</update>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

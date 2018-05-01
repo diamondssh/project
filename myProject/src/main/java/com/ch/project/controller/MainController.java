@@ -9,6 +9,10 @@ public class MainController {
 	public String main() {
 		return "main/main";
 	}
+	@RequestMapping("top")
+	public String top() {
+		return "main/top";
+	}
 
 	@RequestMapping("article")
 	public String article() {

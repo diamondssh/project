@@ -4,12 +4,12 @@
 <configuration>
 	<typeAliases>
 	
-		<typeAlias alias="board" type="com.ch.project.model.Board" />
-		<typeAlias alias="rboard" type="com.ch.project.model.ReplyBoard" />
+		<typeAlias alias="fboard" type="com.ch.project.model.FreeBoard" />
+		<typeAlias alias="frboard" type="com.ch.project.model.FreeReplyBoard" />
 	</typeAliases>
 	<mappers>
 	
-		<mapper resource="board.xml" />
-		<mapper resource="rboard.xml" />
+		<mapper resource="fboard.xml" />
+		<mapper resource="frboard.xml" />
 	</mappers>
 </configuration>
